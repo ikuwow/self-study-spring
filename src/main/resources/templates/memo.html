@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    <form action="/memo">
+        <div>
+            <input name="memo" placeholder="memo">
+            <input name="author" placeholder="author">
+            <input type="button" value="Submit">
+        </div>
+    </form>
+
+    <ul>
+        <li
+            th:each="item : ${items}"
+                                 th:text="${item.memo} + ${#strings.isEmpty(item.author) ? '' : ' @' + item.author}">
+        </li>
+    </ul>
+</body>
+</html>
