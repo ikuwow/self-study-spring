@@ -16,7 +16,7 @@
     <ul>
         <li
             th:each="item : ${items}"
-                                 th:text="${item.memo} + ${#strings.isEmpty(item.author) ? '' : ' @' + item.author}">
+            th:text="${item.memo} + ${#strings.isEmpty(item.author) ? '' : ' @' + item.author}">
         </li>
     </ul>
 </body>
