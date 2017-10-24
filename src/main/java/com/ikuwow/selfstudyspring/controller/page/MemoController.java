@@ -4,6 +4,8 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.ui.Model;
 import org.springframework.stereotype.Controller;
 import com.ikuwow.selfstudyspring.model.Memo;
+import com.ikuwow.selfstudyspring.service.MemoService;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
 import java.util.Map;
@@ -16,13 +18,21 @@ import java.util.Date;
 @RequestMapping("memo")
 public class MemoController {
 
+    private MemoService memoService;
+
+    @Autowired
+    public MemoController(MemoService memoService) {
+        this.memoService = memoService;
+    }
+
+    public MemoService getMemoService() {
+        return memoService;
+    }
+
     @RequestMapping("")
     public String get(Model model) {
-        List<Map<String, Object>> items = new ArrayList<>();
-        Map<String, Object> item = new HashMap<>();
-        item.put("memo", "Empty Memo");
-        item.put("author", "Empty Author");
-        items.add(item);
+        List<Memo> items = new ArrayList<>();
+        items.add(getMemoService().join("Joined memo", "Joined author"));
 
         model.addAttribute("items", items);
         return "memo";
