@@ -7,4 +7,3 @@ create table memos (
 insert into memos (content, author, created) values ('Springを学ぶ', '金次郎', '2016-06-23 17:57:00.0');
 insert into memos (content, author, created) values ('Thymeleafを学ぶ', '金次郎', '2016-06-23 17:57:00.0');
 insert into memos (content, author, created) values ('Flywayを学ぶ', '金次郎', '2016-06-23 17:57:00.0');
-insert into memos (content, author, created) values ('AspectJを生麩', '金次郎', '2016-06-23 17:57:00.0');
