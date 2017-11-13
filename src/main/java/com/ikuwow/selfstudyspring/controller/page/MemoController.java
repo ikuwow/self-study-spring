@@ -5,6 +5,7 @@ import org.springframework.ui.Model;
 import org.springframework.stereotype.Controller;
 import com.ikuwow.selfstudyspring.model.Memo;
 import com.ikuwow.selfstudyspring.service.MemoService;
+import com.ikuwow.selfstudyspring.aspect.ExceptionControllerAdvice;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
@@ -58,5 +59,10 @@ public class MemoController {
     public String post(@ModelAttribute Memo item, Model model) {
         getMemoService().write(item.getMemo(), item.getAuthor());
         return "redirect:/memo";
+    }
+
+    @RequestMapping("error")
+    public String getError(Model model) {
+        throw new ExceptionControllerAdvice.MemoException();
     }
 }
